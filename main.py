@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.routes import user_routes
+from backend.routes import user_routes,video_routes
 from backend.db import mongo
 import uvicorn
 from backend.middlewares.auth import Auth
@@ -18,6 +18,7 @@ async def root():
 
 
 app.include_router(user_routes.router, prefix="/api/v1")
+app.include_router(video_routes.router, prefix="/api/v1")
 app.middleware("http")(Auth)
 
 
