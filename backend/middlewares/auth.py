@@ -5,7 +5,7 @@ from backend.config.secrets import SECRET_KEY, ALGORITHM
 from backend.db import mongo
 
 async def Auth(request: Request, call_next):
-    protected_paths = ["/api/v1/profile","/api/v1/delete-user","/api/v1/update-user"]
+    protected_paths = ["/api/v1/profile","/api/v1/delete-user","/api/v1/update-user","/api/v1/create-video","/api/v1/delete-video/:id"]
     from ..db.mongo import db
 
     if db is None:
